@@ -1,0 +1,255 @@
+warning: virtual workspace defaulting to `resolver = "1"` despite one or more workspace members being on edition 2024 which implies `resolver = "3"`
+  |
+  = note: to keep the current resolver, specify `workspace.resolver = "1"` in the workspace root's manifest
+  = note: to use the edition 2024 resolver, specify `workspace.resolver = "3"` in the workspace root's manifest
+  = note: for more details see https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions
+   0.093108959s  INFO prepare_target{force=false package_id=cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli) target="cli"}: cargo::core::compiler::fingerprint: fingerprint error for cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli)/Check { test: false }/TargetInner { name: "cli", doc: true, ..: with_path("/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli/src/main.rs", Edition2024) }
+   0.093430959s  INFO prepare_target{force=false package_id=cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli) target="cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/cli-f0ebc9d6f7f4c51e/bin-cli`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.107796834s  INFO prepare_target{force=false package_id=data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data) target="data"}: cargo::core::compiler::fingerprint: fingerprint error for data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("data", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data/src/lib.rs", Edition2024) }
+   0.107825417s  INFO prepare_target{force=false package_id=data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data) target="data"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/data-624d2ffa0892343d/lib-data`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.107998125s  INFO prepare_target{force=false package_id=network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network) target="network"}: cargo::core::compiler::fingerprint: fingerprint error for network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("network", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network/src/lib.rs", Edition2024) }
+   0.108004375s  INFO prepare_target{force=false package_id=network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network) target="network"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/network-49f80a24d92788f0/lib-network`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.108155667s  INFO prepare_target{force=false package_id=simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator) target="simulator"}: cargo::core::compiler::fingerprint: fingerprint error for simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("simulator", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator/src/lib.rs", Edition2024) }
+   0.108161417s  INFO prepare_target{force=false package_id=simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator) target="simulator"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/simulator-5d7cd5c39916bb0f/lib-simulator`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.108305125s  INFO prepare_target{force=false package_id=tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model) target="tx_model"}: cargo::core::compiler::fingerprint: fingerprint error for tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("tx_model", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model/src/lib.rs", Edition2024) }
+   0.108310417s  INFO prepare_target{force=false package_id=tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model) target="tx_model"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/tx-model-3097cba0c07aa4b6/lib-tx_model`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.108478834s  INFO prepare_target{force=false package_id=cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli) target="cli"}: cargo::core::compiler::fingerprint: fingerprint error for cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli)/Check { test: true }/TargetInner { name: "cli", doc: true, ..: with_path("/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli/src/main.rs", Edition2024) }
+   0.108483917s  INFO prepare_target{force=false package_id=cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli) target="cli"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/cli-33390c2907cf2171/test-bin-cli`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.108738417s  INFO prepare_target{force=false package_id=data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data) target="data"}: cargo::core::compiler::fingerprint: fingerprint error for data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("data", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data/src/lib.rs", Edition2024) }
+   0.108743834s  INFO prepare_target{force=false package_id=data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data) target="data"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/data-7b7fa9ca5735bd2f/test-lib-data`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.108907500s  INFO prepare_target{force=false package_id=network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network) target="network"}: cargo::core::compiler::fingerprint: fingerprint error for network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("network", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network/src/lib.rs", Edition2024) }
+   0.108912792s  INFO prepare_target{force=false package_id=network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network) target="network"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/network-80b004fdf747212b/test-lib-network`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.109084959s  INFO prepare_target{force=false package_id=simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator) target="simulator"}: cargo::core::compiler::fingerprint: fingerprint error for simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("simulator", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator/src/lib.rs", Edition2024) }
+   0.109090334s  INFO prepare_target{force=false package_id=simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator) target="simulator"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/simulator-c23d5bff5c18e206/test-lib-simulator`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.109255042s  INFO prepare_target{force=false package_id=tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model) target="tx_model"}: cargo::core::compiler::fingerprint: fingerprint error for tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("tx_model", ["lib"], "/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model/src/lib.rs", Edition2024) }
+   0.109260209s  INFO prepare_target{force=false package_id=tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model) target="tx_model"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/target/debug/.fingerprint/tx-model-d1ea4704fe7dd26f/test-lib-tx_model`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: cargo_util::paths::read_bytes
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::_compare_old_fingerprint
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+    Checking data v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/data)
+    Checking tx-model v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/tx-model)
+    Checking network v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/network)
+    Checking simulator v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/crates/simulator)
+    Checking cli v0.1.0 (/Users/danishvahajuddinansari/WEB3/solana-tx-predictor/cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.38s

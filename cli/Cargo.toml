@@ -1,0 +1,10 @@
+[package]
+name = "cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+simulator = { path = "../crates/simulator" }
+network = { path = "../crates/network" }
+tx-model = { path = "../crates/tx-model" }
+data = { path = "../crates/data" }

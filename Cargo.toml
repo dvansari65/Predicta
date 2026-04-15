@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "cli",
+    "crates/simulator",
+    "crates/network",
+    "crates/tx-model",
+    "crates/data"
+]
