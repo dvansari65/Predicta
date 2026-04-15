@@ -1,1 +1,3 @@
-Makefile linguist-ignored
+Makefile linguist-vendored
+*.d linguist-vendored
+*.trace linguist-vendored
