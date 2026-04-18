@@ -1,7 +1,12 @@
-# Predicta
-# 🚀 Solana TX Predictor
+<div align="center">
+  <h1><code>Predicta</code></h1>
+  <h2>🚀 Solana TX Predictor</h2>
 
-A high-performance Rust toolkit for analyzing Solana transactions **before submission**, providing probabilistic insights into execution outcomes under real network conditions.
+  <p>
+    A high-performance Rust toolkit for analyzing Solana transactions <strong>before submission</strong>,
+    providing probabilistic insights into execution outcomes under real network conditions.
+  </p>
+</div>
 
 ---
 
