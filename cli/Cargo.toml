@@ -8,3 +8,11 @@ simulator = { path = "../crates/simulator" }
 network = { path = "../crates/network" }
 tx-model = { path = "../crates/tx-model" }
 data = { path = "../crates/data" }
+clap = { version = "4.6.0", features = ["derive"] }
+tokio = { version = "1.52.0", features = ["full", "macros"] }
+serde_json = "1.0.149"
+colored = "3.0.0"
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.1"
