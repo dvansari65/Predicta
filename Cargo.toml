@@ -4,5 +4,6 @@ members = [
     "crates/simulator",
     "crates/network",
     "crates/tx-model",
-    "crates/data"
+    "crates/data",
+    "crates/predicta"
 ]

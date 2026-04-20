@@ -999,6 +999,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "predicta"
+version = "0.1.0"
+dependencies = [
+ "predicta-data",
+ "predicta-network",
+ "predicta-simulator",
+ "predicta-tx-model",
+ "tokio",
+]
+
+[[package]]
 name = "predicta-cli"
 version = "0.1.0"
 dependencies = [
