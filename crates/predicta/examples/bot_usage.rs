@@ -1,9 +1,9 @@
-use data::RpcIngestor;
-use simulator::{FeeAdequacy, RetryAdvice, RiskReason, Simulator};
-use tx_model::{AccountMeta, Instruction, Transaction};
+use predicta::data::RpcIngestor;
+use predicta::simulator::{FeeAdequacy, RetryAdvice, RiskReason, Simulator};
+use predicta::tx_model::{AccountMeta, Instruction, Transaction};
 
 /// To run this example from the workspace root:
-/// cargo run -p simulator --example bot_usage
+/// cargo run -p predicta --example bot_usage
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Starting End-to-End Prediction Example...\n");
