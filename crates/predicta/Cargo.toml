@@ -1,0 +1,17 @@
+[package]
+name = "predicta"
+version = "0.1.0"
+edition = "2024"
+authors = ["Danish Vahajuddin Ansari"]
+description = "A high-performance toolkit for analyzing Solana transactions before submission."
+license = "MIT"
+repository = "https://github.com/dvansari65/Predicta"
+
+[dependencies]
+predicta-simulator = { path = "../simulator", version = "0.1.0" }
+predicta-data = { path = "../data", version = "0.1.0" }
+predicta-tx-model = { path = "../tx-model", version = "0.1.0" }
+predicta-network = { path = "../network", version = "0.1.0" }
+
+[dev-dependencies]
+tokio = { version = "1.52.0", features = ["full"] }
