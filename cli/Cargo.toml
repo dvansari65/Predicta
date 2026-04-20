@@ -2,6 +2,7 @@
 name = "predicta-cli"
 version = "0.1.0"
 edition = "2024"
+authors = ["Danish Vahajuddin Ansari"]
 description = "Command-line interface for the Predicta Solana transaction simulator."
 license = "MIT"
 repository = "https://github.com/dvansari65/Predicta"

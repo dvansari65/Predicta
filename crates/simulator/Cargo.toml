@@ -2,6 +2,7 @@
 name = "predicta-simulator"
 version = "0.1.0"
 edition = "2024"
+authors = ["Danish Vahajuddin Ansari"]
 description = "Core simulation engine for predicting Solana transaction outcomes."
 license = "MIT"
 repository = "https://github.com/dvansari65/Predicta"
