@@ -1,13 +1,16 @@
 [package]
-name = "cli"
+name = "predicta-cli"
 version = "0.1.0"
 edition = "2024"
+description = "Command-line interface for the Predicta Solana transaction simulator."
+license = "MIT"
+repository = "https://github.com/dvansari65/Predicta"
 
 [dependencies]
-simulator = { path = "../crates/simulator" }
-network = { path = "../crates/network" }
-tx-model = { path = "../crates/tx-model" }
-data = { path = "../crates/data" }
+simulator = { package = "predicta-simulator", path = "../crates/simulator", version = "0.1.0" }
+network = { package = "predicta-network", path = "../crates/network", version = "0.1.0" }
+tx-model = { package = "predicta-tx-model", path = "../crates/tx-model", version = "0.1.0" }
+data = { package = "predicta-data", path = "../crates/data", version = "0.1.0" }
 clap = { version = "4.6.0", features = ["derive"] }
 tokio = { version = "1.52.0", features = ["full", "macros"] }
 serde_json = "1.0.149"

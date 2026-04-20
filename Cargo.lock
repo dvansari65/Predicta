@@ -196,22 +196,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c8d4a3bb8b1e0c1050499d1815f5ab16d04f0959b233085fb31653fbfc9d98f9"
 
 [[package]]
-name = "cli"
-version = "0.1.0"
-dependencies = [
- "assert_cmd",
- "clap",
- "colored",
- "data",
- "network",
- "predicates",
- "serde_json",
- "simulator",
- "tokio",
- "tx-model",
-]
-
-[[package]]
 name = "colorchoice"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -251,20 +235,6 @@ name = "core-foundation-sys"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "773648b94d0e5d620f64f280777445740e61fe701025087ec8b57f45c791888b"
-
-[[package]]
-name = "data"
-version = "0.1.0"
-dependencies = [
- "clap",
- "mockito",
- "network",
- "reqwest",
- "serde",
- "serde_json",
- "thiserror",
- "tokio",
-]
 
 [[package]]
 name = "difflib"
@@ -869,16 +839,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "network"
-version = "0.1.0"
-dependencies = [
- "clap",
- "serde",
- "serde_json",
- "tokio",
-]
-
-[[package]]
 name = "normalize-line-endings"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1036,6 +996,68 @@ checksum = "d0de1b847b39c8131db0467e9df1ff60e6d0562ab8e9a16e568ad0fdb372e2f2"
 dependencies = [
  "predicates-core",
  "termtree",
+]
+
+[[package]]
+name = "predicta-cli"
+version = "0.1.0"
+dependencies = [
+ "assert_cmd",
+ "clap",
+ "colored",
+ "predicates",
+ "predicta-data",
+ "predicta-network",
+ "predicta-simulator",
+ "predicta-tx-model",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
+name = "predicta-data"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "mockito",
+ "predicta-network",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
+name = "predicta-network"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
+name = "predicta-simulator"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "predicta-network",
+ "predicta-tx-model",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
+name = "predicta-tx-model"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "serde",
+ "serde_json",
+ "tokio",
 ]
 
 [[package]]
@@ -1379,18 +1401,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbbb5d9659141646ae647b42fe094daf6c6192d1620870b449d9557f748b2daa"
 
 [[package]]
-name = "simulator"
-version = "0.1.0"
-dependencies = [
- "clap",
- "network",
- "serde",
- "serde_json",
- "tokio",
- "tx-model",
-]
-
-[[package]]
 name = "slab"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1661,16 +1671,6 @@ name = "try-lock"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b"
-
-[[package]]
-name = "tx-model"
-version = "0.1.0"
-dependencies = [
- "clap",
- "serde",
- "serde_json",
- "tokio",
-]
 
 [[package]]
 name = "unicode-ident"
