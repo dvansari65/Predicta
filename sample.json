@@ -1,0 +1,21 @@
+{
+  "instructions": [
+    {
+      "program_id": "ComputeBudget111111111111111111111111111111",
+      "accounts": [
+        "payer"
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "pubkey": "payer",
+      "is_signer": true,
+      "is_writable": true
+    }
+  ],
+  "compute_unit_limit": 200000,
+  "priority_fee_microlamports": 10000,
+  "tx_size_bytes": 400,
+  "recent_blockhash_age_slots": 5
+}

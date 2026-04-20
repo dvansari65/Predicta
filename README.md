@@ -23,83 +23,123 @@ This project provides a **pre-submission analysis engine** that helps developers
 
 ---
 
-## 🎯 Goals
-
-* Estimate transaction success probability
-* Provide fee optimization insights
-* Enable smarter retry strategies
-* Model real-world network conditions
-
----
-
 ## 🏗️ Project Structure
 
-```text
-solana-tx-predictor/
-│
-├── cli/                  # Command-line interface
-├── crates/
-│   ├── simulator/       # Core simulation engine
-│   ├── network/         # Network state & slot modeling
-│   ├── tx-model/        # Transaction abstraction
-│   ├── data/            # RPC/data ingestion
-│
-├── examples/            # Usage examples
-├── tests/               # Integration tests
-├── docs/                # Documentation
-│
-├── Cargo.toml           # Workspace config
-└── README.md
-```
+This project is built as a modular workspace, allowing developers to use only the pieces they need:
+- `tx-model`: Domain model for validating and profiling transactions.
+- `network`: Domain model for defining network state and congestion levels.
+- `data`: Live data ingestion from Solana RPCs to populate the network state.
+- `simulator`: The core engine that scores a transaction against the network state.
+- `cli`: A command-line interface for testing predictions without writing code.
 
 ---
 
-## ⚙️ Installation
+## 💻 Developer Usage & Examples
 
-### Prerequisites
+If you are building a trading bot, wallet backend, or DeFi application, you can use the `simulator` crate to intelligently adjust priority fees and retry strategies dynamically.
 
-* Rust (latest stable)
-* Cargo
+### 1. Add to your `Cargo.toml`
+If you are integrating this into your own project, depend on the crates you need:
 
-### Clone repository
-
-```bash
-git clone https://github.com/your-username/solana-tx-predictor.git
-cd solana-tx-predictor
+```toml
+[dependencies]
+tx-model = { path = "crates/tx-model" }
+data = { path = "crates/data" }
+network = { path = "crates/network" }
+simulator = { path = "crates/simulator" }
+tokio = { version = "1.52", features = ["full"] }
 ```
 
-### Build
+### 2. End-to-End Prediction Example (e.g., Trading Bot)
 
-```bash
-cargo build --release
+This example demonstrates exactly how a Rust backend or Trading Bot uses the library to predict landing probability and assess fees *before* broadcasting a transaction.
+
+```rust
+use data::RpcIngestor;
+use simulator::{Simulator, FeeAdequacy, RetryAdvice, RiskReason};
+use tx_model::{AccountMeta, Instruction, Transaction};
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // 1. Build your transaction (Domain Model representation)
+    let my_tx = Transaction {
+        instructions: vec![Instruction {
+            program_id: "JUP6LkbZbjS1jKKwapdH67yIeI2tWcbkXJ5A2e8YpXF".to_string(), // Jupiter Swap
+            accounts: vec!["payer".to_string(), "pool_address".to_string()],
+        }],
+        accounts: vec![
+            AccountMeta {
+                pubkey: "payer".to_string(),
+                is_signer: true,
+                is_writable: true,
+            },
+            AccountMeta {
+                pubkey: "pool_address".to_string(),
+                is_signer: false,
+                is_writable: true,
+            },
+        ],
+        compute_unit_limit: 300_000,
+        priority_fee_microlamports: 5_000, // We are guessing 5,000 is enough
+        tx_size_bytes: 450,
+        recent_blockhash_age_slots: 2, // Very fresh blockhash
+    };
+
+    // 2. Validate and Profile the Transaction
+    let tx_profile = my_tx.profile().expect("Invalid transaction structure");
+
+    // 3. Fetch Live Network Conditions (e.g., from Mainnet)
+    println!("Fetching live network state...");
+    let ingestor = RpcIngestor::new("https://api.mainnet-beta.solana.com");
+    let network_snapshot = ingestor.fetch_snapshot().await.expect("RPC fetch failed");
+    let network_profile = network_snapshot.profile().expect("Invalid network state");
+
+    // 4. Run the Simulator
+    let result = Simulator::simulate(&tx_profile, &network_profile);
+
+    // 5. Make programmatic decisions based on the result
+    println!("Landing Probability: {:.1}%", result.landing_probability * 100.0);
+    println!("Estimated Delay: {} slots", result.estimated_delay_slots);
+    
+    match result.fee_adequacy {
+        FeeAdequacy::Underfunded => {
+            println!("Warning: Your fee is too low for current network conditions!");
+            // Bot logic: Automatically bump the priority fee and re-simulate
+        }
+        FeeAdequacy::Competitive => println!("Fee is competitive."),
+        FeeAdequacy::Overfunded => println!("Fee is generous, high chance of landing quickly."),
+    }
+
+    if result.risk_reasons.contains(&RiskReason::HighCongestion) {
+        println!("Warning: The network is currently highly congested.");
+        // Bot logic: Alert the user that the swap might take longer than usual
+    }
+
+    match result.retry_advice {
+        RetryAdvice::DoNotRetry => println!("Action: Drop this transaction. Blockhash is dead."),
+        RetryAdvice::WaitAndSee => println!("Action: Send it, but wait a few slots before retrying."),
+        RetryAdvice::RetryImmediately => println!("Action: Send and aggressively spam retries."),
+    }
+
+    Ok(())
+}
 ```
 
 ---
 
 ## 🚀 Usage (CLI)
 
+If you don't want to write Rust code and just want to test the math, you can use the built-in CLI tool.
+
+### 1. Generate a sample transaction JSON
 ```bash
-cargo run -- simulate-tx tx.json
+cargo run -p cli -- sample > my_tx.json
 ```
 
-Example input:
-
-```json
-{
-  "instructions": ["swap"],
-  "compute_units": 200000,
-  "priority_fee": 5000
-}
-```
-
----
-
-## 📦 Library Usage
-
-```rust
-use simulator::simulate;
-
-let result = simulate(&tx);
+### 2. Run the prediction engine
+This will read your JSON file, fetch real-time data from mainnet, and print a color-coded analysis to your terminal.
+```bash
+cargo run -p cli -- predict --tx-file my_tx.json
 ```
 
 ---
@@ -107,42 +147,19 @@ let result = simulate(&tx);
 ## 🧪 Development
 
 ### Run tests
-
 ```bash
-cargo test
+cargo test --workspace
 ```
 
 ### Format code
-
 ```bash
 cargo fmt
 ```
 
 ### Lint
-
 ```bash
 cargo clippy
 ```
-
----
-
-## 🧱 Tech Stack
-
-* Rust (core language)
-* Tokio (async runtime)
-* Serde (serialization)
-* Clap (CLI interface)
-
----
-
-## 📌 Roadmap
-
-* [ ] Basic transaction parsing
-* [ ] Network state ingestion
-* [ ] Simulation engine (MVP)
-* [ ] CLI interface
-* [ ] Real-time mode
-* [ ] Performance optimization
 
 ---
 
