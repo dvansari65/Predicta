@@ -1,14 +1,20 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod client;
+pub mod ingestor;
+
+pub use client::{RpcError, SolanaRpcClient};
+pub use ingestor::{IngestionError, RpcIngestor};
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    // Note: Since we are using reqwest to make actual HTTP calls,
+    // true unit testing of the RpcIngestor would require standing up a mock HTTP server
+    // (e.g. using `mockito` or `wiremock` crates).
+    // For now, we will add a simple placeholder test, and rely on integration tests
+    // or manual verification against a live testnet/mainnet node.
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn test_ingestor_initialization() {
+        let _ingestor = super::RpcIngestor::new("http://localhost:8899");
+        // Successfully initialized
     }
 }
