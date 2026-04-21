@@ -14,14 +14,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', background: 'var(--bg-glass)', backdropFilter: 'blur(10px)', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ fontWeight: 800, fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ color: 'var(--accent-green)' }}>⬡</span> Predicta
+        <nav className="nav-bar">
+          <div className="nav-logo">
+            <img src="/logo.svg" alt="Predicta Logo" width="32" height="32" />
+            Predicta
           </div>
-          <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+          <div className="nav-links">
             <a href="/">Home</a>
             <a href="/getting-started">Documentation</a>
-            <a href="https://github.com/dvansari65/Predicta" target="_blank" className="btn btn-secondary" style={{ padding: '0.4rem 1rem' }}>GitHub</a>
+            <a href="https://github.com/dvansari65/Predicta" target="_blank" className="btn btn-secondary nav-btn">GitHub</a>
           </div>
         </nav>
         <main>
